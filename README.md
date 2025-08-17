@@ -90,6 +90,7 @@ Located in `~/.oh-my-zsh/custom/`:
 - **zoxide** - Smart `cd` command
 - **starship** - Cross-shell prompt
 - **hugo** - Static site generator
+- **exercism** - Code practice and mentorship platform CLI
 - **rg (ripgrep)** - Fast text search
 - **fd** - Fast file finder
 - **fzf** - Fuzzy finder for command line
@@ -182,6 +183,14 @@ After installation, you can use these commands:
 doom sync      # Sync configuration changes
 doom upgrade   # Update Doom and packages
 doom doctor    # Check for issues
+```
+
+### Using Exercism
+After installation, configure exercism for code practice:
+```bash
+exercism configure --token=your_exercism_token
+exercism download --exercise=hello-world --track=elixir
+exercism submit path/to/solution.ex
 ```
 
 ### Missing Tools

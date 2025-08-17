@@ -94,6 +94,7 @@ brew_tools=(
     "helix"
     "emacs"
     "racket"
+    "exercism"
     "ripgrep"
     "fd"
     "fzf"
