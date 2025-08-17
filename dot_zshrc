@@ -1,0 +1,51 @@
+# Oh my zsh stuff
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='hx'
+fi
+
+export PATH="/Applications/Racket v8.17/bin:$PATH"
+export PATH="$HOME/bin:$PATH" # Personal scripts
+# export ANTHROPIC_API_KEY="your-api-key-here"
+
+# Aliases
+alias vim="nvim"
+alias vimvim="cd ~/.config/nvim && nvim ."
+alias dot="nvim ~/.zshrc"
+alias resource="source ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias ls="exa"
+
+# Mise manages Elixir, Erlang, Node and Ruby
+eval "$(/Users/thomas/.local/bin/mise activate zsh)"
+
+# OCaml and OPAM
+[[ ! -r '/Users/thomas/.opam/opam-init/init.zsh' ]] || source '/Users/thomas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
+# Homebrew mysql@8 in path
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+# Enter into tmux if not already in a session.
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then exec tmux; fi
+
+eval "$(starship init zsh)"
+
+# qlty completions
+[ -s "/opt/homebrew/share/zsh/site-functions/_qlty" ] && source "/opt/homebrew/share/zsh/site-functions/_qlty"
+
+# qlty
+export QLTY_INSTALL="$HOME/.qlty"
+export PATH="$QLTY_INSTALL/bin:$PATH"
+
+eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/Users/thomas/.bun/_bun" ] && source "/Users/thomas/.bun/_bun"
