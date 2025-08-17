@@ -1,0 +1,10 @@
+# Personal aliases
+alias vim="nvim"
+alias vimvim="cd ~/.config/nvim && nvim ."
+alias dot="nvim ~/.zshrc"
+alias resource="source ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias ls="exa"
+alias cat="bat"
+alias top="btop"
+alias cd="z"

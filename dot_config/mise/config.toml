@@ -1,0 +1,21 @@
+# Global mise configuration
+# This file manages global tool versions
+
+[tools]
+# Programming languages
+elixir = "latest"
+erlang = "latest"
+ruby = "latest"
+node = "latest"
+
+# Additional tools can be added here as needed
+
+[settings]
+# Automatically install missing tools
+auto_install = true
+
+# Use system package manager when possible
+use_packages = true
+
+# Always keep tools up to date
+always_keep_download = false
