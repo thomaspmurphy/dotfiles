@@ -92,6 +92,8 @@ brew_tools=(
     "node"
     "bun"
     "helix"
+    "emacs"
+    "racket"
     "ripgrep"
     "fd"
     "fzf"
@@ -202,6 +204,33 @@ if ! command -v nvim &> /dev/null || [[ "$1" == "--rebuild-nvim" ]]; then
     log_success "Neovim built and installed from source"
 else
     log_info "Neovim already installed"
+fi
+
+# Install and setup Doom Emacs
+if [ ! -d "$HOME/.emacs.d" ] || [[ "$1" == "--reinstall-doom" ]]; then
+    log_info "Setting up Doom Emacs..."
+    
+    # Remove existing .emacs.d if reinstalling
+    if [[ "$1" == "--reinstall-doom" ]] && [ -d "$HOME/.emacs.d" ]; then
+        log_info "Removing existing Doom Emacs installation..."
+        rm -rf "$HOME/.emacs.d"
+    fi
+    
+    # Clone Doom Emacs
+    log_info "Cloning Doom Emacs..."
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+    
+    # Install Doom
+    log_info "Installing Doom Emacs..."
+    ~/.emacs.d/bin/doom install --no-config
+    
+    # Sync Doom
+    log_info "Syncing Doom Emacs..."
+    ~/.emacs.d/bin/doom sync
+    
+    log_success "Doom Emacs installed and configured"
+else
+    log_info "Doom Emacs already installed"
 fi
 
 # Set up mise global tools

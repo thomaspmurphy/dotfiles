@@ -11,6 +11,7 @@ fi
 export PATH="/Applications/Racket v8.17/bin:$PATH"
 export PATH="$HOME/bin:$PATH" # Personal scripts
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH" # Doom Emacs
 
 # Tool-specific exports
 export QLTY_INSTALL="$HOME/.qlty"

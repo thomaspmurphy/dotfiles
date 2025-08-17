@@ -38,6 +38,7 @@ chezmoi apply
 - **`.config/nvim/`** - Complete Neovim setup with LazyVim
 - **`.config/helix/`** - Helix editor configuration
 - **`.config/mise/`** - Runtime version manager configuration
+- **`.doom.d/`** - Doom Emacs configuration
 
 ### Oh My Zsh Custom Files
 Located in `~/.oh-my-zsh/custom/`:
@@ -58,6 +59,7 @@ Located in `~/.oh-my-zsh/custom/`:
 ### Development Tools
 - **Neovim** - Built from source with LazyVim configuration
 - **Helix** - Modern text editor
+- **Emacs** - Text editor with Doom Emacs configuration
 - **tmux** - Terminal multiplexer
 - **Claude Code** - AI-powered CLI tool
 
@@ -68,6 +70,7 @@ Located in `~/.oh-my-zsh/custom/`:
 - **Elixir** - Functional programming language (latest)
 - **Erlang** - Erlang/OTP platform (latest)
 - **Rust** - Systems programming language
+- **Racket** - Functional programming language for PLT research
 
 ### C Development Tools
 - **GCC** - GNU Compiler Collection
@@ -112,6 +115,10 @@ Located in `~/.oh-my-zsh/custom/`:
 │   ├── helix/                         # → ~/.config/helix/
 │   └── mise/
 │       └── config.toml                # → ~/.config/mise/config.toml
+├── dot_doom.d/                        # → ~/.doom.d/
+│   ├── config.el                      # Doom Emacs configuration
+│   ├── init.el                        # Doom Emacs modules
+│   └── packages.el                    # Doom Emacs packages
 ├── dot_oh-my-zsh/
 │   └── custom/
 │       ├── aliases.zsh                # → ~/.oh-my-zsh/custom/aliases.zsh
@@ -161,6 +168,20 @@ mise use -g node@18.0.0
 If you need to rebuild Neovim from source:
 ```bash
 ~/.local/share/chezmoi/run_once_install-deps.sh --rebuild-nvim
+```
+
+### Reinstalling Doom Emacs
+If you need to reinstall Doom Emacs:
+```bash
+~/.local/share/chezmoi/run_once_install-deps.sh --reinstall-doom
+```
+
+### Using Doom Emacs
+After installation, you can use these commands:
+```bash
+doom sync      # Sync configuration changes
+doom upgrade   # Update Doom and packages
+doom doctor    # Check for issues
 ```
 
 ### Missing Tools
