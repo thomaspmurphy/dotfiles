@@ -1,0 +1,36 @@
+theme = "autumn_night"
+
+[keys.normal]
+# LazyVim-style shortcuts
+space.space = "file_picker"
+space.f.f = "file_picker"
+space.f.r = "file_picker_in_current_directory"
+space.f.g = "global_search"
+space.s.g = "global_search"
+space.b.b = "buffer_picker"
+space.b.d = ":buffer-close"
+space.b.n = ":buffer-next"
+space.b.p = ":buffer-previous"
+space.e = "file_explorer"
+space.w.w = ":write"
+space.w.q = ":write-quit"
+space.q.q = ":quit"
+space.q.a = ":quit-all"
+space.l.d = "goto_definition"
+space.l.r = "goto_reference"
+space.l.s = "symbol_picker"
+space.l.f = "code_action"
+space.g.g = ":sh lazygit"
+space.t = ":toggle-option soft-wrap.enable"
+# LSP documentation (like Vim's K)
+K = "hover"
+
+
+[keys.insert]
+# Exit insert mode
+"C-c" = "normal_mode"
+
+[keys.select]
+# Exit select mode
+"C-c" = "normal_mode"
+

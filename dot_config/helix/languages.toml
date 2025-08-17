@@ -1,0 +1,88 @@
+# Ruby LSP
+[language-server.ruby-lsp]
+command = "ruby-lsp"
+config = { diagnostics = true, formatting = true }
+
+# TypeScript/JavaScript LSP
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+config.hostInfo = "helix"
+
+# React/TSX support uses the same TypeScript LSP
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+# OCaml LSP
+[language-server.ocamllsp]
+command = "ocamllsp"
+
+# Haskell LSP
+[language-server.haskell-language-server]
+command = "haskell-language-server-wrapper"
+args = ["--lsp"]
+
+# Rust LSP
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+config.check.command = "clippy"
+
+# Elixir LSP
+[language-server.elixir-ls]
+command = "elixir-ls"
+
+# Erlang LSP
+[language-server.erlang-ls]
+command = "erlang_ls"
+
+# Language configurations
+[[language]]
+name = "ruby"
+language-servers = ["ruby-lsp"]
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server", "eslint"]
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server", "eslint"]
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "eslint"]
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "eslint"]
+auto-format = true
+
+[[language]]
+name = "ocaml"
+language-servers = ["ocamllsp"]
+auto-format = true
+
+[[language]]
+name = "haskell"
+language-servers = ["haskell-language-server"]
+auto-format = true
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+auto-format = true
+
+[[language]]
+name = "elixir"
+language-servers = ["elixir-ls"]
+auto-format = true
+
+[[language]]
+name = "erlang"
+language-servers = ["erlang-ls"]
+auto-format = true

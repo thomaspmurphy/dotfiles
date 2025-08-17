@@ -47,6 +47,22 @@ install_if_missing() {
 
 log_info "Starting development environment setup..."
 
+# Install Xcode Command Line Tools first (required on macOS)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if ! xcode-select -p &> /dev/null; then
+        log_info "Installing Xcode Command Line Tools..."
+        xcode-select --install
+        log_info "Please complete the Xcode Command Line Tools installation and re-run this script"
+        log_warning "Waiting for Xcode Command Line Tools installation..."
+        until xcode-select -p &> /dev/null; do
+            sleep 5
+        done
+        log_success "Xcode Command Line Tools installed"
+    else
+        log_info "Xcode Command Line Tools already installed"
+    fi
+fi
+
 # Install Homebrew if not present
 if ! command -v brew &> /dev/null; then
     log_info "Installing Homebrew..."
@@ -76,15 +92,42 @@ brew_tools=(
     "node"
     "bun"
     "helix"
+    "ripgrep"
+    "fd"
+)
+
+# C development tools
+c_dev_tools=(
+    "gcc"
+    "cmake"
+    "make"
+    "pkg-config"
+    "autoconf"
+    "automake"
+    "libtool"
 )
 
 for tool in "${brew_tools[@]}"; do
     install_if_missing "$tool" "brew install $tool" "$tool"
 done
 
+# Install C development tools
+log_info "Installing C development tools..."
+for tool in "${c_dev_tools[@]}"; do
+    install_if_missing "$tool" "brew install $tool" "$tool"
+done
+
 # Install GUI applications
 log_info "Installing GUI applications..."
-install_if_missing "ghostty" "brew install --cask ghostty" "Ghostty terminal"
+gui_apps=(
+    "ghostty:brew install --cask ghostty:Ghostty terminal"
+    "obsidian:brew install --cask obsidian:Obsidian note-taking"
+)
+
+for app_info in "${gui_apps[@]}"; do
+    IFS=':' read -r cmd install_cmd name <<< "$app_info"
+    install_if_missing "$cmd" "$install_cmd" "$name"
+done
 
 # Install Claude Code
 if ! command -v claude &> /dev/null; then
