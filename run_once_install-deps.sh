@@ -94,6 +94,7 @@ brew_tools=(
     "helix"
     "ripgrep"
     "fd"
+    "fzf"
 )
 
 # C development tools

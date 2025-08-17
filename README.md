@@ -89,6 +89,7 @@ Located in `~/.oh-my-zsh/custom/`:
 - **hugo** - Static site generator
 - **rg (ripgrep)** - Fast text search
 - **fd** - Fast file finder
+- **fzf** - Fuzzy finder for command line
 
 ### GUI Applications
 - **Ghostty** - Fast, feature-rich terminal emulator
